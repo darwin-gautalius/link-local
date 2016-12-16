@@ -1,0 +1,14 @@
+{
+  "name": "link-local",
+  "version": "1.0.0",
+  "description": "local package link manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "link-local": "bin/install.js"
+  },
+  "author": "Darwin Gautalius",
+  "license": "ISC"
+}
