@@ -11,6 +11,6 @@ for (var i = 0; i < packages.length; i++) {
 
 function link(name, path) {
     console.log('linking ' + name);
-    execSync('npm link', { cwd: path });
-    execSync('npm link ' + name, { cwd: __dirname });
+    execSync('yarn link', { cwd: path });
+    execSync('yarn link ' + name, { cwd: process.cwd() });
 }

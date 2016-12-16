@@ -1,6 +1,6 @@
 {
   "name": "link-local",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "local package link manager",
   "main": "index.js",
   "scripts": {
@@ -10,5 +10,6 @@
     "link-local": "bin/install.js"
   },
   "author": "Darwin Gautalius",
+  "url" : "https://github.com/darwin-gautalius/link-local",
   "license": "ISC"
 }
