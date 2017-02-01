@@ -3,7 +3,8 @@
 const fs = require('fs');
 const path = require('path');
 
-var package = require(process.cwd() + '/package.json');
+var packagePath = path.resolve(process.cwd(), 'package.json');
+var package = require(packagePath);
 let packages = Object.keys(package.localDependencies);
 
 for (var i = 0; i < packages.length; i++) {
@@ -13,7 +14,7 @@ for (var i = 0; i < packages.length; i++) {
 function link(name, target) {
     console.log('linking ' + name);
     target = path.resolve(process.cwd(), target);
-    let link = path.resolve(process.cwd(), './node_modules/' + name);
+    let link = path.resolve(process.cwd(), 'node_modules', name);
 
     prepareDirectory(link);
     createSymlink(target, link);
@@ -26,12 +27,12 @@ function createSymlink(target, link) {
     fs.symlinkSync(target, link, 'dir');
 }
 
-function prepareDirectory(path) {
-    let dirsToCreate = path.split('/');
+function prepareDirectory(targetPath) {
+    let dirsToCreate = targetPath.split(path.sep);
     dirsToCreate.pop();
-    path = dirsToCreate.join('/');
+    targetPath = dirsToCreate.join(path.sep);
 
-    if (!fs.existsSync(path)) {
-        fs.mkdirSync(path);
+    if (!fs.existsSync(targetPath)) {
+        fs.mkdirSync(targetPath);
     }
 }
